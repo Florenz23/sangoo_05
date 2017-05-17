@@ -3,13 +3,15 @@ import {TabNavigator, StackNavigator} from 'react-navigation';
 
 import CounterViewContainer from '../counter/CounterViewContainer';
 import ColorViewContainer from '../colors/ColorViewContainer';
+import ThreadViewContainer from '../threads/ThreadViewContainer';
+import ThreadDetailViewContainer from '../threadDetail/ThreadDetailViewContainer';
 
 const headerColor = '#39babd';
 const activeColor = 'white';
 
 // TabNavigator is nested inside StackNavigator
 export const MainScreenNavigator = TabNavigator({
-  Counter: {screen: CounterViewContainer},
+  Counter: {screen: ThreadViewContainer},
   Color: {screen: ColorViewContainer}
 }, {
   tabBarOptions: {
@@ -24,7 +26,7 @@ export const MainScreenNavigator = TabNavigator({
 });
 
 MainScreenNavigator.navigationOptions = {
-  title: 'Pepperoni App Template',
+  title: 'Sangoo_04',
   header: {
     titleStyle: {color: 'white'},
     style: {
@@ -37,7 +39,8 @@ MainScreenNavigator.navigationOptions = {
 // Root navigator is a StackNavigator
 const AppNavigator = StackNavigator({
   Home: {screen: MainScreenNavigator},
-  InfiniteColorStack: {screen: ColorViewContainer}
+  InfiniteColorStack: {screen: ColorViewContainer},
+  ThreadDetailViewContainer: {screen: ThreadDetailViewContainer},
 });
 
 export default AppNavigator;

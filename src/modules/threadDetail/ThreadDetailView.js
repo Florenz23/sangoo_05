@@ -17,6 +17,27 @@ import { PostRatingBox, PostAddButton, PostTextBox } from '../threads/components
 const reset = () => {
   this.props.counterStateActions.reset();
 };
+const renderPost = (posts,ratePostUp,ratePostDown,showPostDetail,navigate) => {
+  return posts.map( post => {
+    return (
+        <TouchableOpacity
+          style={[styles.container,{backgroundColor:post.get('bgColor')}]}
+          key={post.get('postId')}
+          onPress={() => navigate({routeName: 'ThreadDetailViewContainer'})}
+          >
+            <PostTextBox key="jo" >
+            {post}
+            </PostTextBox>
+            <PostRatingBox key="nö" style={styles.postRatingContainer}
+            ratePostUp={() => ratePostUp()}
+            ratePostDown={() => ratePostDown()}
+            >
+              {post}
+            </PostRatingBox>
+        </TouchableOpacity>
+    )
+  })
+}
 
 const renderPosts = (posts,ratePostUp,ratePostDown,showPostDetail,navigate) => {
   return posts.map( post => {
@@ -48,6 +69,7 @@ const ThreadDetailView = (props) => {
       showPostDetail,
       navigate
     } = props
+  console.log(props)
     return (
       <View>
           <ScrollView>

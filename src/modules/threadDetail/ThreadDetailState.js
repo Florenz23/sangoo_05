@@ -6,8 +6,10 @@ import posts from '../../mock/posts'
 
 // Initial state
 const initialState = Map({
-  posts: posts,
+  recentPostId : 1,
 });
+
+console.log(initialState)
 
 // Actions
 const INCREMENT = 'CounterState/INCREMENT';
@@ -52,7 +54,7 @@ export default function ThreadStateReducer(state = initialState, action = {}) {
       return state
     case SHOWPOSTDETAIL:
       console.log("detail")
-      return state
+      return state.update('recentPostId', value => action.payload.postId);
       case RESET:
         return initialState;
     default:

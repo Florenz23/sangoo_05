@@ -6,7 +6,7 @@ import * as ThreadDetailStateActions from '../threadDetail/ThreadDetailState';
 
 export default connect(
   (state) => ({
-    posts: state.getIn(['threads', 'posts']),
+    postId: state.getIn(['threadDetail', 'recentPostId']),
   }),
   (dispatch) => ({
       navigate: bindActionCreators(NavigationActions.navigate, dispatch),

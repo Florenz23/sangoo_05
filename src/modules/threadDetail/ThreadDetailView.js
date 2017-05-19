@@ -14,16 +14,18 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { PostRatingBox, PostAddButton, PostTextBox } from '../threads/components'
 
-const reset = () => {
-  this.props.counterStateActions.reset();
-};
-const renderPost = (posts,ratePostUp,ratePostDown,showPostDetail,navigate) => {
-  return posts.map( post => {
+import posts from '../../mock/posts'
+console.log(posts)
+
+const renderPost = (postId,ratePostUp,ratePostDown) => {
+  console.log(postId)
+  return
+  const post = posts.find(function(obj){return obj.get('id') === postId})
+  console.log(postId)
     return (
-        <TouchableOpacity
+        <View
           style={[styles.container,{backgroundColor:post.get('bgColor')}]}
           key={post.get('postId')}
-          onPress={() => navigate({routeName: 'ThreadDetailViewContainer'})}
           >
             <PostTextBox key="jo" >
             {post}
@@ -34,12 +36,11 @@ const renderPost = (posts,ratePostUp,ratePostDown,showPostDetail,navigate) => {
             >
               {post}
             </PostRatingBox>
-        </TouchableOpacity>
-    )
-  })
+        </View>
+  )
 }
 
-const renderPosts = (posts,ratePostUp,ratePostDown,showPostDetail,navigate) => {
+const renderReplies = (posts,ratePostUp,ratePostDown,showPostDetail,navigate) => {
   return posts.map( post => {
     return (
         <TouchableOpacity
@@ -67,13 +68,15 @@ const ThreadDetailView = (props) => {
       ratePostDown,
       addNewPost,
       showPostDetail,
-      navigate
+      navigate,
+      postId
     } = props
   console.log(props)
     return (
       <View>
           <ScrollView>
-            {renderPosts(props.posts,ratePostUp,ratePostDown,showPostDetail,navigate)}
+            {renderPost(postId,ratePostUp,ratePostDown)}
+            {renderReplies(props.posts,ratePostUp,ratePostDown,showPostDetail,navigate)}
           </ScrollView>
           <PostAddButton
           addNewPost={() => addNewPost()}

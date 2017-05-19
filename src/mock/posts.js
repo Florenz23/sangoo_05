@@ -87,5 +87,4 @@ const muserPost3 = {
 posts  = [muserPost1,muserPost2,muserPost3]
 const posts  = Immutable.fromJS(posts)
 
-console.log(posts)
 export default posts

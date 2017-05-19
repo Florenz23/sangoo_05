@@ -48,7 +48,6 @@ const ThreadDetailView = (props) => {
       showPostDetail,
       navigate
     } = props
-  console.log(props)
     return (
       <View>
           <ScrollView>

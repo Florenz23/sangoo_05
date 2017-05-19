@@ -32,8 +32,13 @@ export function ratePostDown() {
 export function addNewPost() {
   return {type: ADDNEWPOST};
 }
-export function showPostDetail() {
-  return {type: SHOWPOSTDETAIL};
+export function showPostDetail(postId) {
+  return {
+    type: SHOWPOSTDETAIL,
+    payload : {
+      postId : postId
+    }
+  };
 }
 
 // Reducer

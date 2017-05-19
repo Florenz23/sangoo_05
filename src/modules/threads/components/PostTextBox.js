@@ -12,7 +12,7 @@ const PostTextBox = (props) => {
               <Text >
                 <FontAwesome style={styles.postReplyIcon} name="commenting-o"  />
               </Text>
-              <Text style={styles.postReplyNumber}> {children.get('replies').count()} </Text>
+              <Text style={styles.postReplyNumber}> {children.get('replies').length} </Text>
             </View>
           </View>
   )

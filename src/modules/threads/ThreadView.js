@@ -14,18 +14,22 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { PostRatingBox, PostAddButton, PostTextBox } from './components'
 
-const reset = () => {
-  this.props.counterStateActions.reset();
-};
+
+const showDetail = (navigate,showPostDetail,postId) => {
+  console.log("moin")
+  navigate({routeName: 'ThreadDetailViewContainer'})
+  showPostDetail(postId)
+}
+
 
 const renderPosts = (posts,ratePostUp,ratePostDown,showPostDetail,navigate) => {
   return posts.map( post => {
-    console.log(post)
+    const postId = post.get('id')
     return (
         <TouchableOpacity
           style={[styles.container,{backgroundColor:post.get('bgColor')}]}
           key={post.get('id')}
-          onPress={() => navigate({routeName: 'ThreadDetailViewContainer'})}
+          onPress={() => showDetail(navigate,showPostDetail,postId)}
           >
             <PostTextBox key="jo" >
             {post}
@@ -50,7 +54,6 @@ const ThreadView = (props) => {
       navigate,
       reset
     } = props
-  console.log(props)
     return (
       <View>
           <ScrollView>

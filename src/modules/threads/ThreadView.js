@@ -24,7 +24,7 @@ const renderPosts = (posts,ratePostUp,ratePostDown,showPostDetail,navigate) => {
     return (
         <TouchableOpacity
           style={[styles.container,{backgroundColor:post.get('bgColor')}]}
-          key={post.get('postId')}
+          key={post.get('id')}
           onPress={() => navigate({routeName: 'ThreadDetailViewContainer'})}
           >
             <PostTextBox key="jo" >
@@ -53,9 +53,6 @@ const ThreadView = (props) => {
   console.log(props)
     return (
       <View>
-          <TouchableOpacity onPress={() => reset()}>
-            <Text> Moin </Text>
-          </TouchableOpacity>
           <ScrollView>
             {renderPosts(props.posts,ratePostUp,ratePostDown,showPostDetail,navigate)}
           </ScrollView>

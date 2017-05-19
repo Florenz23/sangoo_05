@@ -15,7 +15,7 @@ export default connect(
       ratePostDown: () => dispatch(ThreadStateActions.ratePostDown()),
       addNewPost: () => dispatch(ThreadStateActions.addNewPost()),
       reset: () => dispatch(ThreadStateActions.reset()),
-      showPostDetail: () => dispatch(ThreadStateActions.showPostDetail()),
+      showPostDetail: (threadId) => dispatch(ThreadStateActions.showPostDetail(threadId)),
     })
 )(ThreadView)
 

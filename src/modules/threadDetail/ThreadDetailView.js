@@ -12,15 +12,18 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
-import { PostRatingBox, PostAddButton, PostTextBox } from '../threads/components'
+import { PostRatingBox, PostAddButton, ReplyTextBox, PostTextBox } from '../threads/components'
 
 import posts from '../../mock/posts'
 console.log(posts)
 
-const renderPost = (postId,ratePostUp,ratePostDown) => {
-  console.log(postId)
-  return
+const _getPost = (postId) => {
   const post = posts.find(function(obj){return obj.get('id') === postId})
+  return post
+}
+
+const renderPost = (postId,ratePostUp,ratePostDown) => {
+  const post = _getPost(postId)
   console.log(postId)
     return (
         <View
@@ -40,17 +43,26 @@ const renderPost = (postId,ratePostUp,ratePostDown) => {
   )
 }
 
-const renderReplies = (posts,ratePostUp,ratePostDown,showPostDetail,navigate) => {
-  return posts.map( post => {
+const colors = ['#7cdbd5','#f53240','#f9be02']
+
+const renderReplies = (postId,ratePostUp,ratePostDown,showPostDetail,navigate) => {
+  const post = _getPost(postId)
+  const replies = post.get('replies')
+  var i = 0
+  return replies.map( post => {
+    i++
+    if (i == 3 ) {
+      i = 0
+    }
     return (
         <TouchableOpacity
-          style={[styles.container,{backgroundColor:post.get('bgColor')}]}
+          style={[styles.container,{backgroundColor:colors[i]}]}
           key={post.get('postId')}
           onPress={() => navigate({routeName: 'ThreadDetailViewContainer'})}
           >
-            <PostTextBox key="jo" >
+            <ReplyTextBox key="jo" >
             {post}
-            </PostTextBox>
+            </ReplyTextBox>
             <PostRatingBox key="nö" style={styles.postRatingContainer}
             ratePostUp={() => ratePostUp()}
             ratePostDown={() => ratePostDown()}
@@ -76,7 +88,7 @@ const ThreadDetailView = (props) => {
       <View>
           <ScrollView>
             {renderPost(postId,ratePostUp,ratePostDown)}
-            {renderReplies(props.posts,ratePostUp,ratePostDown,showPostDetail,navigate)}
+            {renderReplies(postId,ratePostUp,ratePostDown,showPostDetail,navigate)}
           </ScrollView>
           <PostAddButton
           addNewPost={() => addNewPost()}

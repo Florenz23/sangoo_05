@@ -20,14 +20,20 @@ const showDetail = (navigate,showPostDetail,postId) => {
   navigate({routeName: 'ThreadDetailViewContainer'})
   showPostDetail(postId)
 }
-
+const colors = ['#7cdbd5','#f53240','#f9be02']
 
 const renderPosts = (posts,ratePostUp,ratePostDown,showPostDetail,navigate) => {
+  var i = 0
   return posts.map( post => {
+    //TODO should be done better
     const postId = post.get('id')
+    i++
+    if (i == 3 ) {
+      i = 0
+    }
     return (
         <TouchableOpacity
-          style={[styles.container,{backgroundColor:post.get('bgColor')}]}
+          style={[styles.container,{backgroundColor:colors[i]}]}
           key={post.get('id')}
           onPress={() => showDetail(navigate,showPostDetail,postId)}
           >

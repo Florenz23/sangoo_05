@@ -3,12 +3,13 @@ import {TabNavigator, StackNavigator} from 'react-navigation';
 
 import CounterViewContainer from '../counter/CounterViewContainer';
 import ColorViewContainer from '../colors/ColorViewContainer';
-import ThreadViewContainer from '../threads/ThreadViewContainer';
+import ThreadNavContainer from '../threads/ThreadNavContainer';
 import ThreadDetailViewContainer from '../threadDetail/ThreadDetailViewContainer';
 import ConnectRadarViewContainer from '../connectRadar/ConnectRadarViewContainer';
 import ContactNavContainer from '../contacts/ContactNavContainer';
 import SettingsNavContainer from '../settings/SettingsNavContainer';
 import ConnectNavContainer from '../connect/ConnectNavContainer';
+import ConnectDetailViewContainer from '../connect/ConnectDetailViewContainer';
 
 
 const headerColor = '#39babd';
@@ -17,11 +18,10 @@ const activeColor = 'white';
 // TabNavigator is nested inside StackNavigator
 // here roots are defined
 export const MainScreenNavigator = TabNavigator({
-  Chat: {screen: ThreadViewContainer},
+  Chat: {screen: ThreadNavContainer},
   Connect: {screen: ConnectNavContainer},
   Contacs : {screen: ContactNavContainer},
-  Settings : {screen: SettingsNavContainer},
-}, {
+  Settings : {screen: SettingsNavContainer}, }, {
   tabBarOptions: {
     ...Platform.select({
       android: {
@@ -49,6 +49,7 @@ const AppNavigator = StackNavigator({
   Home: {screen: MainScreenNavigator},
   InfiniteColorStack: {screen: ConnectRadarViewContainer},
   ThreadDetailViewContainer: {screen: ThreadDetailViewContainer},
+  ConnectDetail : {screen: ConnectDetailViewContainer},
 });
 
 export default AppNavigator;

@@ -3,9 +3,9 @@ import Immutable from 'immutable';
 import Reply from './Reply'
 import Post from './Post'
 
-const post1 = " Kommt ein Römer in die Bar, hebt zwei Finger und sagt: 'Fünf Bier bitt' #ausilmenau"
-const post2 = " Gerade hat mein Nachbar geklingelt und mich angemotzt, weil ich heute so oft auf Klo gegangen bin und eben so spät schon wieder. Ab 10 gilt Nachruhe. uNd die Spülung würde nerven"
-const post3 = " Wisst ihr zufällig, ob man im Bafögamt auch mal außerhalb der Sprchzeiten was persönlich abgeben kann= Oder dann eher in Kuvert und in Briefkasten? #jhj"
+var post1= " Kommt ein Römer in die Bar, hebt zwei Finger und sagt: 'Fünf Bier bitt' #ausilmenau"
+var post2 = " Gerade hat mein Nachbar geklingelt und mich angemotzt, weil ich heute so oft auf Klo gegangen bin und eben so spät schon wieder. Ab 10 gilt Nachruhe. uNd die Spülung würde nerven"
+var post3 = " Wisst ihr zufällig, ob man im Bafögamt auch mal außerhalb der Sprchzeiten was persönlich abgeben kann= Oder dann eher in Kuvert und in Briefkasten? #jhj"
 
 const reply_message_11 = "Moin1 ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
 const reply_message_12 = "Moin2 ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."

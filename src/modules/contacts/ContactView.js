@@ -6,7 +6,6 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import ColorViewChild from './ColorViewChild'
 
 const color = () => Math.floor(255 * Math.random());
 
@@ -14,7 +13,7 @@ const color = () => Math.floor(255 * Math.random());
  * Sample view to demonstrate StackNavigator
  * @TODO remove this module in a live application.
  */
-class ColorView extends Component {
+class ContactView extends Component {
   static displayName = 'ColorView';
 
   static navigationOptions = {
@@ -51,7 +50,9 @@ class ColorView extends Component {
   render() {
     const buttonText = 'Open in Stack Navigator';
     return (
-      <ColorViewChild />
+      <View style={[styles.container, {backgroundColor: this.state.background}]}>
+        <Button color='#ee7f06' title={buttonText} onPress={this.open}/>
+      </View>
     );
   }
 }
@@ -64,4 +65,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ColorView;
+export default ContactView;

@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {NavigationActions} from 'react-navigation';
-import ColorViewChild from './ColorViewChild';
+import ContactView from './ContactView';
 
 export default connect(
    null,
@@ -10,4 +10,4 @@ export default connect(
        navigate: bindActionCreators(NavigationActions.navigate, dispatch)
      };
    }
-)(ColorViewChild);
+)(ContactView);

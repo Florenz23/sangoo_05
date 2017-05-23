@@ -1,3 +1,4 @@
+
 import React, {PropTypes, Component} from 'react';
 import {
   Button,
@@ -6,7 +7,6 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import ColorViewChild from './ColorViewChild'
 
 const color = () => Math.floor(255 * Math.random());
 
@@ -14,28 +14,8 @@ const color = () => Math.floor(255 * Math.random());
  * Sample view to demonstrate StackNavigator
  * @TODO remove this module in a live application.
  */
-class ColorView extends Component {
-  static displayName = 'ColorView';
-
-  static navigationOptions = {
-    title: 'Colors!',
-    tabBar: () => ({
-      icon: (props) => (
-        <Icon name='color-lens' size={24} color={props.tintColor} />
-      )
-    }),
-    // TODO: move this into global config?
-    header: {
-      tintColor: 'white',
-      style: {
-        backgroundColor: '#39babd'
-      }
-    }
-  }
-
-  static propTypes = {
-    navigate: PropTypes.func.isRequired
-  };
+class ColorViewChild extends Component {
+  static displayName = 'ColorViewChild';
 
   constructor(props) {
     super(props);
@@ -51,7 +31,9 @@ class ColorView extends Component {
   render() {
     const buttonText = 'Open in Stack Navigator';
     return (
-      <ColorViewChild />
+      <View style={[styles.container, {backgroundColor: this.state.background}]}>
+        <Button color='#ee7f06' title={buttonText} onPress={this.open}/>
+      </View>
     );
   }
 }
@@ -64,4 +46,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ColorView;
+export default ColorViewChild;

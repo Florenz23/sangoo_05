@@ -11,10 +11,12 @@ const headerColor = '#39babd';
 const activeColor = 'white';
 
 // TabNavigator is nested inside StackNavigator
+// here roots are defined
 export const MainScreenNavigator = TabNavigator({
-  Counter: {screen: ThreadViewContainer},
-  Color: {screen: ConnectRadarViewContainer},
-  Radar : {screen: ConnectRadarViewContainer}
+  Chat: {screen: ThreadViewContainer},
+  Connect: {screen: ConnectRadarViewContainer},
+  Contacs : {screen: ConnectRadarViewContainer},
+  Settings : {screen: ConnectRadarViewContainer},
 }, {
   tabBarOptions: {
     ...Platform.select({

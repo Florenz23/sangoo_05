@@ -8,6 +8,7 @@ import ThreadDetailViewContainer from '../threadDetail/ThreadDetailViewContainer
 import ConnectRadarViewContainer from '../connectRadar/ConnectRadarViewContainer';
 import ContactNavContainer from '../contacts/ContactNavContainer';
 import SettingsNavContainer from '../settings/SettingsNavContainer';
+import ConnectNavContainer from '../connect/ConnectNavContainer';
 
 
 const headerColor = '#39babd';
@@ -17,7 +18,7 @@ const activeColor = 'white';
 // here roots are defined
 export const MainScreenNavigator = TabNavigator({
   Chat: {screen: ThreadViewContainer},
-  Connect: {screen: ConnectRadarViewContainer},
+  Connect: {screen: ConnectNavContainer},
   Contacs : {screen: ContactNavContainer},
   Settings : {screen: SettingsNavContainer},
 }, {

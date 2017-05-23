@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {NavigationActions} from 'react-navigation';
-import ContactView from './ContactView';
+import ConnectView from './ConnectView';
 
 export default connect(
    null,
@@ -10,4 +10,4 @@ export default connect(
        navigate: bindActionCreators(NavigationActions.navigate, dispatch)
      };
    }
-)(ContactView);
+)(ConnectView);

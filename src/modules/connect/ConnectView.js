@@ -17,7 +17,7 @@ const open = (navigate) => {
   navigate({routeName : 'InfiniteColorStack'})
 }
 
-const SettingsView = (props) => {
+const ConnectView = (props) => {
   const {navigate} = props
   const background = `rgba(${color()},${color()},${color()}, 1)`
 
@@ -38,4 +38,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SettingsView;
+export default ConnectView;

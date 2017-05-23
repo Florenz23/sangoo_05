@@ -13,32 +13,21 @@ const color = () => Math.floor(255 * Math.random());
  * Sample view to demonstrate StackNavigator
  * @TODO remove this module in a live application.
  */
-class ContactView extends Component {
-  static displayName = 'ColorView';
+const open = (navigate) => {
+  navigate({routeName : 'InfiniteColorStack'})
+}
 
-  static propTypes = {
-    navigate: PropTypes.func.isRequired
-  };
+const ContactView = (props) => {
+  const {navigate} = props
+  const background = `rgba(${color()},${color()},${color()}, 1)`
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      background: `rgba(${color()},${color()},${color()}, 1)`
-    };
-  }
+  const buttonText = 'Open in Stack Navigator';
 
-  open = () => {
-    this.props.navigate({routeName: 'InfiniteColorStack'});
-  };
-
-  render() {
-    const buttonText = 'Open in Stack Navigator';
-    return (
-      <View style={[styles.container, {backgroundColor: this.state.background}]}>
-        <Button color='#ee7f06' title={buttonText} onPress={this.open}/>
+  return (
+      <View style={[styles.container, {backgroundColor: background}]}>
+        <Button color='#ee7f06' title={buttonText} onPress={() => open(navigate)}/>
       </View>
-    );
-  }
+  );
 }
 
 const styles = StyleSheet.create({

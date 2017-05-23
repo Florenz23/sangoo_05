@@ -28,7 +28,7 @@ const renderPost = (postId,ratePostUp,ratePostDown) => {
     return (
         <View
           style={[styles.container,{backgroundColor:post.get('bgColor')}]}
-          key={post.get('postId')}
+          key={post.get('id')}
           >
             <PostTextBox key="jo" >
             {post}
@@ -57,7 +57,7 @@ const renderReplies = (postId,ratePostUp,ratePostDown,showPostDetail,navigate) =
     return (
         <TouchableOpacity
           style={[styles.container,{backgroundColor:colors[i]}]}
-          key={post.get('postId')}
+          key={post.get('id')}
           onPress={() => navigate({routeName: 'ThreadDetailViewContainer'})}
           >
             <ReplyTextBox key="jo" >

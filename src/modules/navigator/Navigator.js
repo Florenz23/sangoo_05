@@ -5,6 +5,7 @@ import CounterViewContainer from '../counter/CounterViewContainer';
 import ColorViewContainer from '../colors/ColorViewContainer';
 import ThreadViewContainer from '../threads/ThreadViewContainer';
 import ThreadDetailViewContainer from '../threadDetail/ThreadDetailViewContainer';
+import ConnectRadarViewContainer from '../connectRadar/ConnectRadarViewContainer';
 
 const headerColor = '#39babd';
 const activeColor = 'white';
@@ -12,7 +13,8 @@ const activeColor = 'white';
 // TabNavigator is nested inside StackNavigator
 export const MainScreenNavigator = TabNavigator({
   Counter: {screen: ThreadViewContainer},
-  Color: {screen: ColorViewContainer}
+  Color: {screen: ConnectRadarViewContainer},
+  Radar : {screen: ConnectRadarViewContainer}
 }, {
   tabBarOptions: {
     ...Platform.select({
@@ -39,7 +41,7 @@ MainScreenNavigator.navigationOptions = {
 // Root navigator is a StackNavigator
 const AppNavigator = StackNavigator({
   Home: {screen: MainScreenNavigator},
-  InfiniteColorStack: {screen: ColorViewContainer},
+  InfiniteColorStack: {screen: ConnectRadarViewContainer},
   ThreadDetailViewContainer: {screen: ThreadDetailViewContainer},
 });
 

@@ -3,6 +3,7 @@ import {loop, combineReducers} from 'redux-loop-symbol-ponyfill';
 import NavigatorStateReducer from '../modules/navigator/NavigatorState';
 import CounterStateReducer from '../modules/counter/CounterState';
 import ThreadStateReducer from '../modules/threads/ThreadState';
+import ConnectRadarStateReducer from '../modules/connectRadar/ConnectRadarState';
 import ThreadDetailStateReducer from '../modules/threadDetail/ThreadDetailState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 
@@ -13,6 +14,8 @@ const reducers = {
   threads : ThreadStateReducer,
 
   threadDetail : ThreadDetailStateReducer,
+
+  connectRadar : ConnectRadarStateReducer,
 
   // Navigator states
   navigatorState: NavigatorStateReducer,

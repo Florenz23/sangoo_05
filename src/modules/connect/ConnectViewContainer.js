@@ -4,12 +4,13 @@ import {NavigationActions} from 'react-navigation';
 import ConnectView from './ConnectView';
 import * as ConnectStateActions from './ConnectState'
 
+
 export default connect(
-   null,
-   dispatch => {
-     return {
+  (state) => ({
+    posts: state.getIn(['threads', 'posts']),
+  }),
+  (dispatch) => ({
        navigate: bindActionCreators(NavigationActions.navigate, dispatch),
-       showContactDetail : (contactId ) => (ConnectStateActions.showContactDetail(threadId))
-     };
-   }
-)(ConnectView);
+       setRecentContactId : (contactId ) => (ConnectStateActions.setRecentContactId(contactId))
+    })
+)(ConnectView)

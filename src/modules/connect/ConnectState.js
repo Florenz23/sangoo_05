@@ -11,21 +11,23 @@ const initialState = Map({
 console.log(initialState)
 
 // Actions
-const SHOWCONTACTDETAIL = 'ThreadState/SHOWCONTACTDETAIL'
+const SETRECENTCONTACTID = 'ThreadState/SETRECENTCONTACTID'
 // Action creators
-export function showPostDetail() {
-  return {type: SHOWCONTACTDETAIL
+export function setRecentContactId(contactId) {
+  return {
+    type: SETRECENTCONTACTID,
+    payload: {
+      contactId : contactId
+    }
   };
 }
 
 // Reducer
 export default function ConnectStateReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case SHOWCONTACTDETAIL:
+    case SETRECENTCONTACTID:
       console.log("detail")
       return state.update('recentContactId', value => action.payload.contactId);
-      case RESET:
-        return initialState;
     default:
       return state;
   }

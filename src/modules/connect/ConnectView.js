@@ -50,13 +50,14 @@ const datas = [
   },
 ];
 
-const showContactDetail = (navigate) => {
+const showContactDetail = (navigate,setRecentContactId,contactId) => {
   console.log("moin")
   navigate({routeName: 'ConnectDetail'})
+  setRecentContactId(contactId)
 }
 
 const ConnectView = (props) => {
-  const {navigate,showContactDetail,contactId } = props
+  const {navigate,setRecentContactId,contactId } = props
 
     return (
       <Container style={styles.container}>
@@ -75,7 +76,7 @@ const ConnectView = (props) => {
         <Content>
           <List
             dataArray={datas} renderRow={data =>
-              <ListItem avatar onPress={() => showContactDetail(navigate,showContactDetail,contactId)}>
+              <ListItem avatar onPress={() => showContactDetail(navigate,setRecentContactId,contactId)}>
                 <Left>
                   <Thumbnail source={data.img} />
                 </Left>

@@ -8,25 +8,32 @@ const initialState = Map({
   recentContactId : 1,
 });
 
-console.log(initialState)
-
+const HIREDUCER = 'ThreadState/HIHI'
 // Actions
-const SETRECENTCONTACTID = 'ThreadState/SETRECENTCONTACTID'
+const SETRECENTCONTACTID = 'ConnectState/SETRECENTCONTACTID'
 // Action creators
-export function setRecentContactId(contactId) {
+export function hiReducer() {
+  return {type: HIREDUCER};
+}
+export function setRecentContactId(postId) {
+  console.log("moin")
   return {
     type: SETRECENTCONTACTID,
-    payload: {
-      contactId : contactId
+    payload : {
+      postId : postId
     }
   };
 }
 
 // Reducer
 export default function ConnectStateReducer(state = initialState, action = {}) {
+  console.log("check")
   switch (action.type) {
     case SETRECENTCONTACTID:
       console.log("detail")
+      return state.update('recentContactId', value => action.payload.contactId);
+    case HIREDUCER:
+      console.log("hi")
       return state.update('recentContactId', value => action.payload.contactId);
     default:
       return state;

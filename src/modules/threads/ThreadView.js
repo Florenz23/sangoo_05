@@ -16,7 +16,6 @@ import { PostRatingBox, PostAddButton, PostTextBox } from './components'
 
 
 const showDetail = (navigate,showPostDetail,postId) => {
-  console.log("moin")
   navigate({routeName: 'ThreadDetailViewContainer'})
   showPostDetail(postId)
 }

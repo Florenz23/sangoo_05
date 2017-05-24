@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {NavigationActions} from 'react-navigation';
 import ConnectView from './ConnectView';
+import {NavigationActions} from 'react-navigation';
 import * as ConnectStateActions from './ConnectState'
 
 

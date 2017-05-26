@@ -10,12 +10,8 @@ export default connect(
   }),
   (dispatch) => ({
       navigate: bindActionCreators(NavigationActions.navigate, dispatch),
-      threadStateActions: () => dispatch(ThreadStateActions()),
-      ratePostUp: () => dispatch(ThreadStateActions.ratePostUp()),
-      ratePostDown: () => dispatch(ThreadStateActions.ratePostDown()),
-      addNewPost: () => dispatch(ThreadStateActions.addNewPost()),
-      reset: () => dispatch(ThreadStateActions.reset()),
       showPostDetail: (threadId) => dispatch(ContactsStateActions.showPostDetail(threadId)),
+      setRecentContactId : (contactId ) => (ConnectStateActions.setRecentContactId(contactId))
     })
 )(ContactsView)
 

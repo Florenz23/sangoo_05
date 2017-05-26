@@ -5,6 +5,7 @@ import CounterStateReducer from '../modules/counter/CounterState';
 import ThreadStateReducer from '../modules/chat/chatMain/ThreadState';
 import ThreadDetailStateReducer from '../modules/chat/chatDetail/ThreadDetailState';
 import ConnectStateReducer  from '../modules/connect/ConnectState';
+import ContactsStateReducer  from '../modules/contacts/contactsMain/ContactsState';
 import ConnectDetailStateReducer  from '../modules/connect/ConnectDetailState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 
@@ -16,6 +17,8 @@ const reducers = {
   threads : ThreadStateReducer,
 
   threadDetail : ThreadDetailStateReducer,
+
+  contacts : ContactsStateReducer,
 
   connect : ConnectStateReducer,
 

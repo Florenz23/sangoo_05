@@ -12,8 +12,7 @@ import {
 import { Container } from 'native-base'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-
-import { PostRatingBox, PostAddButton, PostTextBox } from './components'
+import { PostRatingBox, PostAddButton, PostTextBox } from '../components'
 
 
 const showDetail = (navigate,showPostDetail,postId) => {

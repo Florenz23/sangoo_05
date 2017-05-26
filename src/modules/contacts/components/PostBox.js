@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet, Text, ScrollView } from 'react-native'
 
-import { posts } from '../../../../mock/posts'
+import { posts } from '../../../mock/posts'
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';

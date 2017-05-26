@@ -42,7 +42,6 @@ export function showPostDetail(postId) {
 
 // Reducer
 export default function ThreadStateReducer(state = initialState, action = {}) {
-  console.log("threadState")
   switch (action.type) {
     case INCREMENT:
       return state.update('value', value => value + 1);

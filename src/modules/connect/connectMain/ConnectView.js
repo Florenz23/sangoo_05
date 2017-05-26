@@ -2,14 +2,14 @@
 import React, { Component } from 'react';
 import { Container, Header, Title, Content, Button, Icon, List, ListItem, Text, Thumbnail, Left, Right, Body } from 'native-base';
 
-import styles from './styles';
+import styles from '../styles/styles';
 
-const pratik = require('../../../img/contacts/pratik.png');
-const sanket = require('../../../img/contacts/sanket.png');
-const megha = require('../../../img/contacts/megha.png');
-const atul = require('../../../img/contacts/atul.png');
-const saurabh = require('../../../img/contacts/saurabh.png');
-const varun = require('../../../img/contacts/varun.png');
+const pratik = require('../../../../img/contacts/pratik.png');
+const sanket = require('../../../../img/contacts/sanket.png');
+const megha = require('../../../../img/contacts/megha.png');
+const atul = require('../../../../img/contacts/atul.png');
+const saurabh = require('../../../../img/contacts/saurabh.png');
+const varun = require('../../../../img/contacts/varun.png');
 
 const datas = [
   {
@@ -57,32 +57,16 @@ const datas = [
 ];
 
 const showContactDetail = (navigate,setRecentContactId,contactId) => {
-  //navigate({routeName: 'ConnectDetail'})
+  navigate({routeName: 'ConnectDetail'})
   setRecentContactId(contactId)
 }
 
-const showMoin = (navigate,setRecentContactId,contactId) => {
-  //navigate({routeName: 'ConnectDetail'})
-  setRecentContactId(contactId)
-}
 
 const ConnectView = (props) => {
   const {navigate,setRecentContactId,contactId } = props
 
     return (
       <Container style={styles.container}>
-        <Header>
-          <Left>
-            <Button transparent onPress={() => Actions.pop()}>
-              <Icon name="arrow-back" />
-            </Button>
-          </Left>
-          <Body>
-            <Title>List Avatar</Title>
-          </Body>
-          <Right />
-        </Header>
-
         <Content>
           <List
             dataArray={datas} renderRow={data =>

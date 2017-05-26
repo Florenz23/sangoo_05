@@ -5,11 +5,10 @@ import CounterViewContainer from '../counter/CounterViewContainer';
 import ColorViewContainer from '../colors/ColorViewContainer';
 import ThreadNavContainer from '../chat/chatMain/ThreadNavContainer';
 import ThreadDetailViewContainer from '../chat/chatDetail/ThreadDetailViewContainer';
-import ConnectRadarViewContainer from '../connectRadar/ConnectRadarViewContainer';
 import ContactsNavContainer from '../contacts/contactsMain/ContactsNavContainer';
 import SettingsNavContainer from '../settings/SettingsNavContainer';
-import ConnectNavContainer from '../connect/ConnectNavContainer';
-import ConnectDetailViewContainer from '../connect/ConnectDetailViewContainer';
+import ConnectNavContainer from '../connect/connectMain/ConnectNavContainer';
+import ConnectDetailViewContainer from '../connect/connectDetail/ConnectDetailViewContainer';
 
 
 const headerColor = '#39babd';
@@ -47,7 +46,7 @@ MainScreenNavigator.navigationOptions = {
 // Root navigator is a StackNavigator
 const AppNavigator = StackNavigator({
   Home: {screen: MainScreenNavigator},
-  InfiniteColorStack: {screen: ConnectRadarViewContainer},
+  InfiniteColorStack: {screen: ConnectNavContainer},
   ThreadDetailViewContainer: {screen: ThreadDetailViewContainer},
   ConnectDetail : {screen: ConnectDetailViewContainer},
 });

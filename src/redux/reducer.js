@@ -4,9 +4,9 @@ import NavigatorStateReducer from '../modules/navigator/NavigatorState';
 import CounterStateReducer from '../modules/counter/CounterState';
 import ThreadStateReducer from '../modules/chat/chatMain/ThreadState';
 import ThreadDetailStateReducer from '../modules/chat/chatDetail/ThreadDetailState';
-import ConnectStateReducer  from '../modules/connect/ConnectState';
+import ConnectStateReducer  from '../modules/connect/connectMain/ConnectState';
+import ConnectDetailStateReducer  from '../modules/connect/connectDetail/ConnectDetailState';
 import ContactsStateReducer  from '../modules/contacts/contactsMain/ContactsState';
-import ConnectDetailStateReducer  from '../modules/connect/ConnectDetailState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 
 

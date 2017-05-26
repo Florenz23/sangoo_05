@@ -34,7 +34,6 @@ export function setRecentContactId(postId) {
 
 // Reducer
 export default function ContactsStateReducer(state = initialState, action = {}) {
-  console.log("threadState")
   switch (action.type) {
     case SHOWPOSTDETAIL:
       return state.update('recentPostId', value => action.payload.postId);

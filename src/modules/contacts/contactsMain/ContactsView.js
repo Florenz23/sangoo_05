@@ -75,7 +75,7 @@ const showDetail = (navigate,showPostDetail,postId) => {
 
 
 const ContactsView = (props) => {
-  const {navigate,showPostDetail,postId } = props
+  const {navigate,showPostDetail,setRecentContactId} = props
 
     return (
       <Container style={styles.container}>
@@ -94,7 +94,7 @@ const ContactsView = (props) => {
         <Content>
           <List
             dataArray={datas} renderRow={data =>
-              <ListItem avatar onPress={() => showDetail(navigate,showPostDetail,postId)}>
+              <ListItem avatar onPress={() => showContactDetail(navigate,setRecentContactId,"5")}>
                 <Left>
                   <Thumbnail source={data.img} />
                 </Left>

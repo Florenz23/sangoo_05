@@ -11,6 +11,6 @@ export default connect(
   }),
   (dispatch) => ({
        navigate: bindActionCreators(NavigationActions.navigate, dispatch),
-       setRecentContactId : (contactId ) => (ConnectStateActions.setRecentContactId(contactId))
+       setRecentContactId : (contactId ) => dispatch(ConnectStateActions.setRecentContactId(contactId))
     })
 )(ConnectView)

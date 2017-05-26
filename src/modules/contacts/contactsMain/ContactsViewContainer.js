@@ -11,7 +11,7 @@ export default connect(
   (dispatch) => ({
       navigate: bindActionCreators(NavigationActions.navigate, dispatch),
       showPostDetail: (threadId) => dispatch(ContactsStateActions.showPostDetail(threadId)),
-      setRecentContactId : (contactId ) => (ConnectStateActions.setRecentContactId(contactId))
+      setRecentContactId : (contactId ) => dispatch(ContactsStateActions.setRecentContactId(contactId))
     })
 )(ContactsView)
 

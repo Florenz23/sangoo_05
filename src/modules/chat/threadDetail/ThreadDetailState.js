@@ -1,8 +1,7 @@
 import {Map} from 'immutable';
 import {loop, Effects} from 'redux-loop-symbol-ponyfill';
-import {generateRandomNumber} from '../../services/randomNumberService';
 
-import posts from '../../mock/posts'
+import posts from '../../../mock/posts'
 
 // Initial state
 const initialState = Map({
@@ -40,7 +39,6 @@ export function showPostDetail() {
 
 // Reducer
 export default function ThreadDetailStateReducer(state = initialState, action = {}) {
-      console.log("detailcontainer")
   switch (action.type) {
     case INCREMENT:
       return state.update('value', value => value + 1);

@@ -12,20 +12,44 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
-import { PostRatingBox, PostAddButton, PostTextBox } from './components'
+import { PostRatingBox, PostAddButton, ReplyTextBox, PostTextBox } from '../threads/components'
 
+import posts from '../../../mock/posts'
+console.log(posts)
 
-const showDetail = (navigate,showPostDetail,postId) => {
-  navigate({routeName: 'ThreadDetailViewContainer'})
-  showPostDetail(postId)
+const _getPost = (postId) => {
+  const post = posts.find(function(obj){return obj.get('id') === postId})
+  return post
 }
+
+const renderPost = (postId,ratePostUp,ratePostDown) => {
+  const post = _getPost(postId)
+  console.log(postId)
+    return (
+        <View
+          style={[styles.container,{backgroundColor:post.get('bgColor')}]}
+          key={post.get('id')}
+          >
+            <PostTextBox key="jo" >
+            {post}
+            </PostTextBox>
+            <PostRatingBox key="nö" style={styles.postRatingContainer}
+            ratePostUp={() => ratePostUp()}
+            ratePostDown={() => ratePostDown()}
+            >
+              {post}
+            </PostRatingBox>
+        </View>
+  )
+}
+
 const colors = ['#7cdbd5','#f53240','#f9be02']
 
-const renderPosts = (posts,ratePostUp,ratePostDown,showPostDetail,navigate) => {
+const renderReplies = (postId,ratePostUp,ratePostDown,showPostDetail,navigate) => {
+  const post = _getPost(postId)
+  const replies = post.get('replies')
   var i = 0
-  return posts.map( post => {
-    //TODO should be done better
-    const postId = post.get('id')
+  return replies.map( post => {
     i++
     if (i == 3 ) {
       i = 0
@@ -34,11 +58,11 @@ const renderPosts = (posts,ratePostUp,ratePostDown,showPostDetail,navigate) => {
         <TouchableOpacity
           style={[styles.container,{backgroundColor:colors[i]}]}
           key={post.get('id')}
-          onPress={() => showDetail(navigate,showPostDetail,postId)}
+          onPress={() => navigate({routeName: 'ThreadDetailViewContainer'})}
           >
-            <PostTextBox key="jo" >
+            <ReplyTextBox key="jo" >
             {post}
-            </PostTextBox>
+            </ReplyTextBox>
             <PostRatingBox key="nö" style={styles.postRatingContainer}
             ratePostUp={() => ratePostUp()}
             ratePostDown={() => ratePostDown()}
@@ -50,19 +74,21 @@ const renderPosts = (posts,ratePostUp,ratePostDown,showPostDetail,navigate) => {
   })
 }
 
-const ThreadView = (props) => {
+const ThreadDetailView = (props) => {
   const {
       ratePostUp,
       ratePostDown,
       addNewPost,
       showPostDetail,
       navigate,
-      reset
+      postId
     } = props
+  console.log(props)
     return (
       <View>
           <ScrollView>
-            {renderPosts(props.posts,ratePostUp,ratePostDown,showPostDetail,navigate)}
+            {renderPost(postId,ratePostUp,ratePostDown)}
+            {renderReplies(postId,ratePostUp,ratePostDown,showPostDetail,navigate)}
           </ScrollView>
           <PostAddButton
           addNewPost={() => addNewPost()}
@@ -156,4 +182,4 @@ var styles = StyleSheet.create({
   }
 });
 
-export default ThreadView;
+export default ThreadDetailView;

@@ -2,12 +2,11 @@ import {Map, fromJS} from 'immutable';
 import {loop, combineReducers} from 'redux-loop-symbol-ponyfill';
 import NavigatorStateReducer from '../modules/navigator/NavigatorState';
 import CounterStateReducer from '../modules/counter/CounterState';
-import ThreadStateReducer from '../modules/threads/ThreadState';
-import ThreadDetailStateReducer from '../modules/threadDetail/ThreadDetailState';
-import ConnectRadarStateReducer from '../modules/connectRadar/ConnectRadarState';
-import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
+import ThreadStateReducer from '../modules/chat/threads/ThreadState';
+import ThreadDetailStateReducer from '../modules/chat/threadDetail/ThreadDetailState';
 import ConnectStateReducer  from '../modules/connect/ConnectState';
 import ConnectDetailStateReducer  from '../modules/connect/ConnectDetailState';
+import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 
 
 const reducers = {

@@ -61,6 +61,11 @@ const showContactDetail = (navigate,setRecentContactId,contactId) => {
   setRecentContactId(contactId)
 }
 
+const showMoin = (navigate,setRecentContactId,contactId) => {
+  //navigate({routeName: 'ConnectDetail'})
+  setRecentContactId(contactId)
+}
+
 const ConnectView = (props) => {
   const {navigate,setRecentContactId,contactId } = props
 

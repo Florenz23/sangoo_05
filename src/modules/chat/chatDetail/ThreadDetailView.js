@@ -12,7 +12,7 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
-import { PostRatingBox, PostAddButton, ReplyTextBox, PostTextBox } from '../threads/components'
+import { PostRatingBox, PostAddButton, ReplyTextBox, PostTextBox } from '../chatMain/components'
 
 import posts from '../../../mock/posts'
 console.log(posts)

@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import ThreadDetailView from './ThreadDetailView';
 import {NavigationActions} from 'react-navigation';
-import * as ThreadDetailStateActions from '../threadDetail/ThreadDetailState';
+import * as ThreadDetailStateActions from '../chatDetail/ThreadDetailState';
 
 export default connect(
   (state) => ({

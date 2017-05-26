@@ -3,8 +3,8 @@ import {TabNavigator, StackNavigator} from 'react-navigation';
 
 import CounterViewContainer from '../counter/CounterViewContainer';
 import ColorViewContainer from '../colors/ColorViewContainer';
-import ThreadNavContainer from '../chat/threads/ThreadNavContainer';
-import ThreadDetailViewContainer from '../chat/threadDetail/ThreadDetailViewContainer';
+import ThreadNavContainer from '../chat/chatMain/ThreadNavContainer';
+import ThreadDetailViewContainer from '../chat/chatDetail/ThreadDetailViewContainer';
 import ConnectRadarViewContainer from '../connectRadar/ConnectRadarViewContainer';
 import ContactNavContainer from '../contacts/ContactNavContainer';
 import SettingsNavContainer from '../settings/SettingsNavContainer';

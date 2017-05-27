@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Container, Header, Title, Content, Button, Icon, List, ListItem, Text, Thumbnail, Left, Right, Body } from 'native-base';
 import { View } from 'react-native'
 
-import styles from '../../styles/styles';
+import styles from '../../styles/imageBox';
 
 import contacts from '../../../../mock/contacts'
 

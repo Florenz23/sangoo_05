@@ -1,4 +1,5 @@
 import React from "react"
+import { List } from "native-base"
 import { View, Text } from "react-native"
 
 import { ConnectDetailImageBox, ConnectDetailShareBox, ConnectDetailSocialBox, ConnectDetailTagBox } from './components'
@@ -10,19 +11,25 @@ const renderImageBox = (recentContactId) => {
       </ConnectDetailImageBox>
   )
 }
-const renderSocialBox = () => {
+const renderSocialBox = (recentContactId) => {
   return (
-      <ConnectDetailSocialBox />
+      <ConnectDetailSocialBox>
+        {recentContactId}
+      </ConnectDetailSocialBox>
   )
 }
-const renderTagBox = () => {
+const renderTagBox = (recentContactId) => {
   return (
-      <ConnectDetailTagBox />
+      <ConnectDetailTagBox>
+        {recentContactId}
+      </ConnectDetailTagBox>
   )
 }
-const renderShareBox = () => {
+const renderShareBox = (recentContactId) => {
   return (
-      <ConnectDetailShareBox />
+      <ConnectDetailShareBox>
+        {recentContactId}
+      </ConnectDetailShareBox>
   )
 }
 
@@ -31,9 +38,11 @@ const ConnectDetailView = (props) => {
   return (
     <View>
       {renderImageBox(recentContactId)}
-      {renderSocialBox()}
-      {renderTagBox()}
-      {renderShareBox()}
+      <List>
+      {renderSocialBox(recentContactId)}
+      {renderTagBox(recentContactId)}
+      {renderShareBox(recentContactId)}
+      </List>
     </View>
   )
 }

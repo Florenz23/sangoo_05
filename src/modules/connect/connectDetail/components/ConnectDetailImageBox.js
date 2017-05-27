@@ -1,39 +1,44 @@
 
 import React, { Component } from 'react';
 import { Container, Header, Title, Content, Button, Icon, List, ListItem, Text, Thumbnail, Left, Right, Body } from 'native-base';
+import { View } from 'react-native'
 
 import styles from '../../styles/styles';
 
-import contacts from '../../../../mock/contacts_simple'
+import contacts from '../../../../mock/contacts'
 
-class ConnectDetailImageBox extends Component {
+const _getContact = (contactId) => {
+  const contact = contacts.find(function(obj){return obj.get('id') === contactId})
+  return contact
+}
 
-  render() {
+const renderData = (contactId) => {
   const datas = contacts
-    return (
-      <Container style={styles.container}>
-
-        <Content>
-          <List
-            dataArray={datas} renderRow={data =>
+  const contact = _getContact(contactId)
+  return (
               <ListItem avatar>
                 <Left>
-                  <Thumbnail source={data.img} />
+                  <Thumbnail source={contact.get('img')} />
                 </Left>
                 <Body>
-                  <Text>{data.text}</Text>
-                  <Text numberOfLines={1} note>{data.note}</Text>
+                  <Text>{contact.get('name')} {contact.get('surname')}</Text>
+                  <Text numberOfLines={1} note>{contact.get('note')}</Text>
                 </Body>
                 <Right>
-                  <Text note>{data.time}</Text>
+                  <Text note>{contact.get('time')}</Text>
                 </Right>
               </ListItem>
-        }
-          />
-        </Content>
-      </Container>
-    );
-  }
+  )
+}
+
+const ConnectDetailImageBox = (props) => {
+  const datas = contacts
+  const {children} = props
+    return (
+      <View>
+        {renderData(children)}
+      </View>
+    )
 }
 
 export default ConnectDetailImageBox

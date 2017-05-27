@@ -3,9 +3,11 @@ import { View, Text } from "react-native"
 
 import { ConnectDetailImageBox, ConnectDetailShareBox, ConnectDetailSocialBox, ConnectDetailTagBox } from './components'
 
-const renderImageBox = () => {
+const renderImageBox = (recentContactId) => {
   return (
-      <ConnectDetailImageBox />
+      <ConnectDetailImageBox>
+        {recentContactId}
+      </ConnectDetailImageBox>
   )
 }
 const renderSocialBox = () => {
@@ -24,10 +26,11 @@ const renderShareBox = () => {
   )
 }
 
-const ConnectDetailView = () => {
+const ConnectDetailView = (props) => {
+  const { recentContactId } = props
   return (
     <View>
-      {renderImageBox()}
+      {renderImageBox(recentContactId)}
       {renderSocialBox()}
       {renderTagBox()}
       {renderShareBox()}

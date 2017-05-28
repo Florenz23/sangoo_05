@@ -1,6 +1,6 @@
 import React from "react"
 import { List } from "native-base"
-import { View, Text } from "react-native"
+import { ScrollView, Text } from "react-native"
 
 import { ConnectDetailImageBox, ConnectDetailShareBox, ConnectDetailSocialBox, ConnectDetailTagBox } from './components'
 
@@ -36,14 +36,14 @@ const renderShareBox = (recentContactId) => {
 const ConnectDetailView = (props) => {
   const { recentContactId } = props
   return (
-    <View>
+    <ScrollView style={{backgroundColor:'white'}}>
       {renderImageBox(recentContactId)}
-      <List>
+      <List style={{backgroundColor:'white'}}>
       {renderSocialBox(recentContactId)}
       {renderTagBox(recentContactId)}
       {renderShareBox(recentContactId)}
       </List>
-    </View>
+    </ScrollView>
   )
 }
 export default ConnectDetailView

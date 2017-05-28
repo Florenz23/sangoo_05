@@ -33,7 +33,7 @@ const renderData = (contactId) => {
       <View>
       <List
           dataArray={data_obj} renderRow={data =>
-            <ListItem>
+            <ListItem style={{backgroundColor:'white'}}>
               <Text>{data.tagDescription}</Text>
               <Right>
                 <Text>{data.tagText}</Text>

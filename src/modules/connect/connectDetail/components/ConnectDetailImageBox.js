@@ -16,7 +16,7 @@ const renderData = (contactId) => {
   const datas = contacts
   const contact = _getContact(contactId)
   return (
-              <ListItem avatar>
+              <ListItem avatar style={{backgroundColor:'white'}}>
                 <Left>
                   <Thumbnail source={contact.get('img')} />
                 </Left>

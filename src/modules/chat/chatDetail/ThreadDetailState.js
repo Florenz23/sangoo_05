@@ -8,7 +8,6 @@ const initialState = Map({
   recentPostId : 1,
 });
 
-console.log(initialState)
 
 // Actions
 const INCREMENT = 'CounterState/INCREMENT';

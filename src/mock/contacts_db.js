@@ -37,17 +37,6 @@ realm.write(() => {
 // Query Realm for all cars with a high mileage
 let cars = realm.objects('Car').filtered('miles > 1000');
 
-// Will return a Results object with our 1 car
-console.log(cars.length)
-
-// Add another car
-realm.write(() => {
-  let myCar = realm.create('Car', {
-    make: 'Ford',
-    model: 'Focus',
-    miles: 2000,
-  });
-});
 
 console.log(cars.length)
 

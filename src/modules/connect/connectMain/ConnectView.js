@@ -22,7 +22,7 @@ const ConnectView = (props) => {
             dataArray={datas} renderRow={data =>
               <ListItem avatar onPress={() => showContactDetail(navigate,setRecentContactId,data.id)}>
                 <Left>
-                  <Thumbnail source={data.img} />
+                  <Thumbnail source={require('../../../../img/contacts/pratik.png')} />
                 </Left>
                 <Body>
                   <Text>{data.text}</Text>

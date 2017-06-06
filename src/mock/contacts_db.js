@@ -1,48 +1,84 @@
+import React from 'react'
 import Immutable from 'immutable';
 
 import Realm from 'realm'
 // Define your models and their properties
-class Car {}
-Car.schema = {
-  name: 'Car',
+const pratik = require('../../img/contacts/pratik.png');
+
+class Contact {}
+Contact.schema = {
+  name: 'Contact',
   properties: {
-    make:  'string',
-    model: 'string',
-    miles: 'int',
+    id : 'int',
+    text: 'string',
+    note: 'string',
+    time: 'string',
+    name: 'string',
+    surname: 'string',
+    surname: 'string',
+    img: 'string', // optional property
   }
 };
-class Person {}
-Person.schema = {
-  name: 'Person',
+class ContactList {}
+ContactList.schema = {
+  name: 'ContactList',
   properties: {
     name:    {type: 'string'},
-    cars:    {type: 'list', objectType: 'Car'},
-    picture: {type: 'data', optional: true}, // optional property
+    contacts:    {type: 'list', objectType: 'Contact'},
   }
 };
 
 // Get the default Realm with support for our objects
-let realm = new Realm({schema: [Car, Person]});
+let realm = new Realm({schema: [Contact, ContactList]});
 
 // Create Realm objects and write to local storage
-realm.write(() => {
-  let myCar = realm.create('Car', {
-    make: 'Honda',
-    model: 'Civic',
-    miles: 1000,
+const createDummy = () => {
+  realm.write(() => {
+    let kumar = realm.create('Contact', {
+      id : 1,
+      text: 'Kumar Pratik',
+      note: 'Its time to build a difference',
+      time: '3:43',
+      name: 'Kumar',
+      surname: 'Pratik',
+      img: 'pratik',
+    });
+    let sanket = realm.create('Contact', {
+      id : 2,
+      text: 'Kumar Sanketk',
+      note: 'One needs courage to be happy and smiling all time . ',
+      time: '3:43',
+      name: 'Kumar',
+      surname: 'Sanket',
+      img: 'sanket',
+    });
+    let megha = realm.create('Contact', {
+      id : 3,
+      text: 'Megha Jojo',
+      note: 'Live a life style that matchs your visio',
+      time: '3:43',
+      name: 'Megha',
+      surname: 'Jojo',
+      img: 'megha',
+    });
   });
-  myCar.miles += 20; // Update a property value
-});
+}
+
+const iniRealm = () => {
+  let contactsRealm = realm.objects('Contact')
+  if (contactsRealm.length == 0 ){
+    createDummy()
+  }
+}
+iniRealm()
 
 // Query Realm for all cars with a high mileage
-let cars = realm.objects('Car').filtered('miles > 1000');
+let contactsRealm = realm.objects('Contact')
+console.log(contactsRealm[0].text)
+console.log(contactsRealm.length)
 
 
-console.log(cars.length)
 
-
-
-const pratik = require('../../img/contacts/pratik.png');
 const sanket = require('../../img/contacts/sanket.png');
 const megha = require('../../img/contacts/megha.png');
 const atul = require('../../img/contacts/atul.png');
@@ -94,4 +130,4 @@ const contacts = [
   },
 ];
 
-export default contacts
+export default contactsRealm
